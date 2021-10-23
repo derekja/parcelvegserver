@@ -1,10 +1,10 @@
 const Client = require('pg').Client
 const client = new Client({
-  user: 'propval',
+  user: process.env.PGUSER,
   host: process.env.PGHOST,
-  database: 'propdb',
-  password: 'BCParks',
-  port: 5432,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT,
 });
 client.connect(err => {
     if (err) {
