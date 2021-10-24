@@ -28,6 +28,17 @@ app.get('/getDistrict', (req, res) => {
     })
   })
 
+
+app.get('/parcel/:id', (req, res) => {
+  sql.getParcelGeom(req.params.id)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
+  
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
   })

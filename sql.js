@@ -14,17 +14,30 @@ client.connect(err => {
     }
   })  
 const getDistrict = () => {
-    console.log('getDistrict')
-    return new Promise(function(resolve, reject) {
-      client.query("select regional_d from parcel WHERE parcel_nam='015417271'", (error, results) => {
-        if (error) {
-          reject(error)
-        }
-        resolve(results.rows);
-      })
-    }) 
-  }
+  console.log('getDistrict')
+  return new Promise(function(resolve, reject) {
+    client.query("select regional_d from parcel WHERE parcel_nam='015417271'", (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(results.rows);
+    })
+  }) 
+}
+
+const getParcelGeom = (id) => {
+  console.log('getParcelGeom')
+  return new Promise(function(resolve, reject) {
+    client.query('SELECT parcel_nam from parcel WHERE pid = $1', [id], (error, results) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(results.rows);
+    })
+  }) 
+}
 
   module.exports = {
-      getDistrict
+      getDistrict,
+      getParcelGeom
   }
