@@ -20,6 +20,7 @@ const getDistrict = () => {
       if (error) {
         reject(error)
       }
+      if (results === undefined) resolve(null)
       resolve(results.rows);
     })
   }) 
@@ -33,7 +34,8 @@ const getParcelGeom = (id) => {
       if (error) {
         reject(error)
       }
-      console.log("results", results)
+      console.log("results", results.rows.get_geoJSON)
+      if (results.rows === undefined) resolve(null)
       resolve(results.rows);
     })
   }) 
