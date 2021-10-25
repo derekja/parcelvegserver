@@ -34,7 +34,7 @@ const getParcelGeom = (id) => {
       if (error) {
         reject(error)
       }
-      console.log("results", results.rows[0].get_geoJSON)
+      console.log("results", results)
       if (results.rows === undefined) resolve(null)
       resolve(results.rows);
     })
