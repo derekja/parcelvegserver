@@ -33,6 +33,7 @@ const getParcelGeom = (id) => {
       if (error) {
         reject(error)
       }
+      console.log("results", results)
       resolve(results.rows);
     })
   }) 
