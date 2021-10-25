@@ -30,7 +30,7 @@ const getDistrict = () => {
 const getParcelGeom = (id) => {
   console.log('getParcelGeom')
   return new Promise(function(resolve, reject) {
-    client.query('SELECT "get_geoJSON"($1::numeric)', [id], (error, results) => {
+    client.query('SELECT get_geoJSON($1::numeric)', [id], (error, results) => {
       if (error) {
         reject(error)
       }
