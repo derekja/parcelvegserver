@@ -53,7 +53,7 @@ let vriQuery = `
                               round((st_area(st_intersection(vri.geom,parcel.geom)))::numeric,2) AS intersection_area
                       FROM     vri,
                               parcel
-                      WHERE    parcel.pid=ANY(ARRAY$1)
+                      WHERE    parcel.pid=ANY(ARRAY[$1])
                       AND      st_intersects(vri.geom,parcel.geom)=true
                       GROUP BY vri.line_3_tre,
                               parcel.pid,
