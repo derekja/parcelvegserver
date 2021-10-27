@@ -68,7 +68,7 @@ let vriQuery = `
             line_3_tre;
   `
 const getVRI = (ids) => {
-  console.log('getVRI')
+  console.log('getVRI', ids)
   return new Promise(function(resolve, reject) {
     client.query(vriQuery, [ids], (error, results) => {
       if (error) reject(error)
