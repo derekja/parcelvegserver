@@ -55,6 +55,7 @@ let vriQuery = `
                               parcel
                       WHERE    parcel.pid=ANY(ARRAY[$1])
                       AND      st_intersects(vri.geom,parcel.geom)=true
+                      AND      vri.line_3_tre IS NOT NULL
                       GROUP BY vri.line_3_tre,
                               parcel.pid,
                               parcel.geom,
