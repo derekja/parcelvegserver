@@ -38,6 +38,16 @@ app.get('/parcel/:id', (req, res) => {
     res.status(500).send(error);
   })
 })
+
+app.get('/vri', (req, res) => {
+  sql.getVRI(req.query.pids)
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(error => {
+    res.status(500).send(error);
+  })
+})
   
   app.listen(port, () => {
     console.log(`App running on port ${port}.`)
